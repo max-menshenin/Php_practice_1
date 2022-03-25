@@ -9,19 +9,16 @@
 */
 
 abstract class Vehicle implements driveForward, driveBack, doN20 {
-    public $body;
+    private $body;
     private $engine;
     private $wheels;
-    public $fuel;
     private $speed;
-
-    public function replaceWheels($wheels) {
-        $this->wheels = $wheels;
-    }
-
 }
 
 class Lamborghini extends Vehicle {
+    function driveForward($speed){
+        $this->$speed += 10;
+    }
 
 }
 class Bulldozer extends Vehicle{
@@ -37,5 +34,6 @@ interface driveBack {
 
 }
 interface doN20 {
-
+}
+interface driveForward{
 }
