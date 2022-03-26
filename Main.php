@@ -19,7 +19,12 @@ class Lamborghini extends Vehicle {
     function driveForward($speed){
         $this->$speed += 10;
     }
-
+    function driveBack($speed){
+        $this->$speed -= 10;
+    }
+    function doN20($speed){
+        $this->$speed *= 1.5;
+    }
 }
 class Bulldozer extends Vehicle implements loadBucket {
     function driveForward($speed){
@@ -34,11 +39,9 @@ class Bulldozer extends Vehicle implements loadBucket {
 }
 class Tank extends Vehicle {
 }
-
 interface driveForward{
 }
 interface driveBack {
-
 }
 interface doN20 {
 }
