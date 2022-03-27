@@ -35,6 +35,7 @@ class Bulldozer extends Vehicle implements loadBucket {
     }
     function loadBucket($bucket){
         $this->$bucket = $bucket;
+        echo $bucket;
     }
 }
 class Tank extends Vehicle {
@@ -47,3 +48,7 @@ interface doN20 {
 }
 interface loadBucket {
 }
+
+
+$bulldozer = new Bulldozer();
+$bulldozer->loadBucket('earth');
