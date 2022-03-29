@@ -7,48 +7,10 @@
 если это бульдозер, — управление ковшом. Принимающая функция должна быть полиморфной. Необходимо реализовать только
 структуру.
 */
+abstract class Vehicle implements VehicleInterface{
 
-abstract class Vehicle implements driveForward, driveBack, doN20, loadBucket {
-    private $body;
-    private $engine;
-    private $wheels;
-    private $speed;
 }
 
-class Lamborghini extends Vehicle {
-    function driveForward($speed){
-        $this->$speed += 10;
-    }
-    function driveBack($speed){
-        $this->$speed -= 10;
-    }
-    function doN20($speed){
-        $this->$speed *= 1.5;
-    }
+interface VehicleInterface{
+    public driveForward{}
 }
-class Bulldozer extends Vehicle implements loadBucket {
-    function driveForward($speed){
-        $this->$speed += 10;
-    }
-    function driveBack($speed){
-        $this->$speed -= 10;
-    }
-    function loadBucket($bucket){
-        $this->$bucket = $bucket;
-        echo 'load bucket';
-    }
-}
-class Tank extends Vehicle {
-}
-interface driveForward{
-}
-interface driveBack {
-}
-interface doN20 {
-}
-interface loadBucket {
-}
-
-
-$bulldozer = new Bulldozer();
-$bulldozer->loadBucket('');
