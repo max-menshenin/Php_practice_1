@@ -8,7 +8,7 @@
 структуру.
 */
 
-abstract class Vehicle implements driveForward, driveBack, doN20, loadBucket {
+abstract class Vehicle implements driveForward, driveBack, doN20, loadBucketInterface {
     private $body;
     private $engine;
     private $wheels;
@@ -26,7 +26,7 @@ class Lamborghini extends Vehicle {
         $this->$speed *= 1.5;
     }
 }
-class Bulldozer extends Vehicle implements loadBucket {
+class Bulldozer extends Vehicle implements loadBucketInterface {
     function driveForward($speed){
         $this->$speed += 10;
     }
@@ -46,7 +46,7 @@ interface driveBack {
 }
 interface doN20 {
 }
-interface loadBucket {
+interface loadBucketInterface {
 }
 
 
