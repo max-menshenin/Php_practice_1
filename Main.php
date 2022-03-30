@@ -8,7 +8,7 @@
 структуру.
 */
 
-class Vehicle implements iVehicle, iBucket
+class Vehicle implements iVehicle, iBucket, iN2O
 {
     private $body;
     private $engine;
@@ -27,6 +27,11 @@ class Vehicle implements iVehicle, iBucket
      function loadBucket($cargo){
         echo 'Cargo is '.$cargo;
     }
+
+    public function applyNitro($boost)
+    {
+        echo 'Nitro applied';
+    }
 }
 
 interface iVehicle
@@ -37,6 +42,10 @@ interface iVehicle
 interface iBucket
 {
     public function loadBucket($cargo);
+}
+interface iN2O
+{
+    public function applyNitro($boost);
 }
 $bulldozer = new Vehicle();
 $bulldozer->driveForward(7);
