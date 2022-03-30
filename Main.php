@@ -8,7 +8,8 @@
 структуру.
 */
 
-class Vehicle implements iVehicle, iBucket  {
+class Vehicle implements iVehicle, iBucket
+{
     private $body;
     private $engine;
     private $wheels;
@@ -42,3 +43,5 @@ $bulldozer->driveForward(7);
 $tank = new Vehicle();
 echo '<br>';
 $bulldozer->loadBucket('ground');
+$car = new Vehicle();
+
