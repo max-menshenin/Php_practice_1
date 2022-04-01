@@ -8,49 +8,47 @@
 структуру.
 */
 
-class Vehicle implements iVehicle, iBucket, iN2O
-{
+abstract class Vehicle implements driveForward, driveBack, doN20, loadBucketInterface {
     private $body;
     private $engine;
     private $wheels;
     private $speed;
-
-    public function driveForward($speed)
-    {
-        echo "Vehicle is moving with speed ".$speed;
-    }
-
-    public function driveBack ($speed){
-        echo "Vehicle is moving backward with speed ".$speed;
-    }
-
-     function loadBucket($cargo){
-        echo 'Cargo is '.$cargo;
-    }
-
-    public function applyNitro($boost)
-    {
-        echo 'Nitro applied';
-    }
 }
 
-interface iVehicle
-{
-    public function driveForward($speed);
-    public function driveBack($speed);
+class Lamborghini extends Vehicle implements doN20 {
+    function driveForward($speed){
+        $this->$speed += 10;
+    }
+    function driveBack($speed){
+        $this->$speed -= 10;
+    }
+    function doN20($speed){
+        $this->$speed *= 1.5;
+    }
 }
-interface iBucket
-{
-    public function loadBucket($cargo);
+class Bulldozer extends Vehicle implements loadBucketInterface {
+    function driveForward($speed){
+        $this->$speed += 10;
+    }
+    function driveBack($speed){
+        $this->$speed -= 10;
+    }
+    function loadBucket($bucket){
+        $this->$bucket = $bucket;
+        echo $bucket;
+    }
 }
-interface iN2O
-{
-    public function applyNitro($boost);
+class Tank extends Vehicle {
 }
-$bulldozer = new Vehicle();
-$bulldozer->driveForward(7);
-$tank = new Vehicle();
-echo '<br>';
+interface driveForward{
+}
+interface driveBack {
+}
+interface doN20 {
+}
+interface loadBucketInterface {
+}
+
+
+$bulldozer = new Bulldozer();
 $bulldozer->loadBucket('ground');
-$car = new Vehicle();
-
